@@ -43,7 +43,7 @@ return setmetatable({
 	detect10 = function() return detectlimit(10) end,
 	detect2  = function() return detectlimit(2)  end,
 	intlimit = intlimit,
-	integertostring = function(i) return ("%.0f"):format(i) end,
+	integertostring = function(i) return type(i)=="number" and ("%.0f"):format(i) or tostring(i) end,
 }, {
 	__call = function(_, ...)
 		return detectlimit(...)
